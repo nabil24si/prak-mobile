@@ -1,22 +1,25 @@
-package com.example.nabilapps
+package com.example.nabilapps.pertemuan_4
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.nabilapps.MainActivity
+import com.example.nabilapps.R
+import com.example.nabilapps.databinding.ActivityFourthBinding
 import com.example.nabilapps.databinding.ActivityMainBinding
-import com.example.nabilapps.pertemuan_4.FourthActivity
 
-class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
+class FourthActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityFourthBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityFourthBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
@@ -26,12 +29,16 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        binding.btnToFourth.setOnClickListener {
-            val intent = Intent(this, FourthActivity::class.java)
-            intent.putExtra("name", "Politeknik Caltex Riau")
-            intent.putExtra("from", "Rumbai")
-            intent.putExtra("age", 25)
+        binding.btnKembali.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
+
         }
+
+        val name = intent.getStringExtra("name")
+        val from = intent.getStringExtra("from")
+        val age = intent.getIntExtra("age",0)
+        Log.e("Data Intent","Nama: $name , Usia: $age, Asal: $from")
+
     }
 }
