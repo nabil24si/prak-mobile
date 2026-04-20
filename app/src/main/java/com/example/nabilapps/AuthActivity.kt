@@ -27,7 +27,7 @@ class AuthActivity : AppCompatActivity() {
             val username = binding.username.text.toString()
             val password = binding.password.text.toString()
 
-            if (username.isNotEmpty() && password.isNotEmpty()) {
+            if (username == password && username.isNotEmpty() && password.isNotEmpty()) {
                 Toast.makeText(this, " $username Login Anda Berhasil !", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, MainActivity::class.java)
                 intent.putExtra("username", binding.username.text.toString()) // Kuncinya adalah "username"
