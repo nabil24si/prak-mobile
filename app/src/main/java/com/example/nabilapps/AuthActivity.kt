@@ -10,6 +10,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.nabilapps.databinding.ActivityAuthBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import androidx.core.content.edit
 
 class AuthActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAuthBinding
@@ -22,12 +23,26 @@ class AuthActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+
         }
+        val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
+
+        //Kondisi jika isLogin bernilai true
+//        val isLogin = sharedPref.getBoolean("isLogin", false)
+//        if (isLogin) {
+//            val intent = Intent(this, MainActivity::class.java)
+//            startActivity(intent)
+//            finish()//kill auth activity
+//        }
         binding.btnLogin.setOnClickListener {
             val username = binding.username.text.toString()
             val password = binding.password.text.toString()
 
             if (username == password && username.isNotEmpty() && password.isNotEmpty()) {
+                sharedPref.edit {
+                    putBoolean("isLogin", true)
+                    putString("username", username)
+                }
                 Toast.makeText(this, " $username Login Anda Berhasil !", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, MainActivity::class.java)
                 intent.putExtra("username", binding.username.text.toString()) // Kuncinya adalah "username"

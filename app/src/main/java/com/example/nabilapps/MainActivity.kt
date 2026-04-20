@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
 
 
         binding.btnToFourth.setOnClickListener {
@@ -41,8 +42,13 @@ class MainActivity : AppCompatActivity() {
                 .setTitle("Konfirmasi")
                 .setMessage("Apakah Anda yakin ingin melanjutkan?")
                 .setPositiveButton("Ya") { dialog, _ ->
+                    val editor = sharedPref.edit()
+                    editor.clear()
+                    editor.apply()
+
                     dialog.dismiss()
-                    finish()
+                    val intent = Intent(this, AuthActivity::class.java)
+                    startActivity(intent)
                 }
                 .setNegativeButton("Batal") { dialog, _ ->
                     dialog.dismiss()
