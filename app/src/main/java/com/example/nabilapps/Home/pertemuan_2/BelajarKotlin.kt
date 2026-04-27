@@ -1,4 +1,4 @@
-package com.example.nabilapps.pertemuan_2
+package com.example.nabilapps.Home.pertemuan_2
 
 fun main() {
     println("Hai Rekan-rekan...")

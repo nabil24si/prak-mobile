@@ -1,4 +1,4 @@
-package com.example.nabilapps.pertemuan_5
+package com.example.nabilapps.Home.pertemuan_5
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,8 +11,6 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.nabilapps.R
 import com.example.nabilapps.databinding.ActivityFifthBinding
-import com.example.nabilapps.databinding.ActivityFourthBinding
-import com.example.nabilapps.pertemuan_3.ThirdResultActivity
 
 class FifthActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFifthBinding
@@ -50,11 +48,11 @@ class FifthActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
 
-                R.id.action_search -> {
+                R.id.menu_opsi -> {
                 Toast.makeText(this, "Search Clicked", Toast.LENGTH_SHORT).show()
                 true
             }
-            R.id.action_settings -> {
+            R.id.menu_opsi-> {
                 Toast.makeText(this, "Settings Clicked", Toast.LENGTH_SHORT).show()
                 true
             }

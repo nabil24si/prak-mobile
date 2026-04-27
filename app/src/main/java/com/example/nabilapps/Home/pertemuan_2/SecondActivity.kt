@@ -1,22 +1,25 @@
-package com.example.nabilapps.pertemuan_3
+package com.example.nabilapps.Home.pertemuan_2
 
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.nabilapps.R
 import com.example.nabilapps.databinding.ActivityFifthBinding
-import com.example.nabilapps.databinding.ActivityThirdBinding
-import com.example.nabilapps.databinding.ActivityThirdResultBinding
+import com.example.nabilapps.databinding.ActivitySecondBinding
 
-class ThirdResultActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityThirdResultBinding
+class SecondActivity : AppCompatActivity() {
+    private lateinit var binding: ActivitySecondBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = ActivityThirdResultBinding.inflate(layoutInflater)
+        binding = ActivitySecondBinding.inflate(layoutInflater)
         setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -29,6 +32,15 @@ class ThirdResultActivity : AppCompatActivity() {
             subtitle = "Ini adalah subtitle"
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
+        }
+        val inputNama: EditText = findViewById(R.id.inputNama)
+        val btnSubmit: Button = findViewById(R.id.btnSubmit)
+        btnSubmit.setOnClickListener {
+            //Mengambil value dari inputNama dan menampilkan di Logcat
+            val nama = inputNama.text
+            Log.e("Klik btnSubmit","Tombol berhasil di tekan. Isi dari inputNama = $nama")
+
+            Toast.makeText(this, "Anda telah melakukan klik pada tombol Submit", Toast.LENGTH_SHORT).show()
         }
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
