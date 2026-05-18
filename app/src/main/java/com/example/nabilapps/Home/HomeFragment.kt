@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import com.example.nabilapps.AuthActivity
+import com.example.nabilapps.Home.pertemuan_10.TenthActivity
 import com.example.nabilapps.Home.pertemuan_2.SecondActivity
 import com.example.nabilapps.Home.pertemuan_3.ThirdActivity
 import com.example.nabilapps.Home.pertemuan_4.FourthActivity
@@ -67,6 +68,11 @@ class HomeFragment : Fragment() {
             }
             binding.btnToNinth.setOnClickListener {
                 val intent = Intent(requireContext(), NinthActivity::class.java)
+                startActivity(intent)
+            }
+
+            binding.btnToTenth.setOnClickListener {
+                val intent = Intent(requireContext(), TenthActivity::class.java)
                 startActivity(intent)
             }
             binding.btnLogout.setOnClickListener {
