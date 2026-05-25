@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5EBE0"
+    tools:context=".Message.tutorial.Tutorial3Fragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="24dp">
+
+        <ImageView
+            android:id="@+id/imageViewTutorial3"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginBottom="32dp"
+            android:contentDescription="Tutorial Final Illustration"
+            android:src="@android:drawable/ic_menu_agenda"
+            tools:tint="#C08A70" />
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Siap Memulai?"
+        android:textColor="#4E3D30"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginBottom="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ini adalah halaman tutor 3. Semua persiapan sudah selesai, saatnya menikmati seluruh fitur yang kami sediakan."
+            android:textColor="#7A6855"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:lineSpacingExtra="4dp"
+            android:layout_marginBottom="40dp" />
+
+        <Button
+            android:id="@+id/btnMulai"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:text="Mulai Sekarang"
+            android:textColor="#F5EBE0"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:backgroundTint="#4E3D30"
+            android:elevation="2dp" />
+
+    </LinearLayout>
+
+</FrameLayout>
