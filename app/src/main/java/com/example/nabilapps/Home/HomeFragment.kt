@@ -9,7 +9,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.example.nabilapps.AuthActivity
+import com.example.nabilapps.Data.api.CatFactApiClient
 import com.example.nabilapps.Home.pertemuan_10.TenthActivity
 import com.example.nabilapps.Home.pertemuan_2.SecondActivity
 import com.example.nabilapps.Home.pertemuan_3.ThirdActivity
@@ -20,6 +22,7 @@ import com.example.nabilapps.Home.pertemuan_9.NinthActivity
 import com.example.nabilapps.R
 import com.example.nabilapps.databinding.FragmentHomeBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
@@ -94,6 +97,23 @@ class HomeFragment : Fragment() {
                         Log.e("Info Dialog", "Anda memilih Tidak!")
                     }
                     .show()
+            }
+            binding.btnRefresh.setOnClickListener {
+                loadCatFact()
+            }
+
+            loadCatFact()
+        }
+
+
+    }
+    private fun loadCatFact() {
+        lifecycleScope.launch {
+            try {
+                val response = CatFactApiClient.apiService.getCatFact()
+                binding.tvCatFact.text = "\"${response.fact}\""
+            } catch (e: Exception) {
+                binding.tvCatFact.text = "Gagal mengambil fakta kucing."
             }
         }
     }
