@@ -167,6 +167,20 @@
                     app:cornerRadius="16dp"
                     app:strokeColor="#E0E0E0" />
 
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnToThriteenth"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="8dp"
+                    android:backgroundTint="@color/white"
+                    android:text="Pertemuan 13"
+                    android:textAllCaps="false"
+                    android:textColor="#3F51B5"
+                    app:cornerRadius="16dp"
+                    app:strokeColor="#E0E0E0" />
+
             </GridLayout>
 
             <com.google.android.material.button.MaterialButton
