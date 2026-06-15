@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="28" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
 
     <application
         android:allowBackup="true"
@@ -69,7 +70,7 @@
             android:name=".Home.pertemuan_4.FourthActivity"
             android:exported="false" />
         <activity
-            android:name=".Home.pertemuan_3.ThirdResultActivity"
+            android:name=".Home.pertemuan_3.ThirdActivity"
             android:exported="false" />
         <activity
             android:name=".Home.pertemuan_2.SecondActivity"
