@@ -13,6 +13,8 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.nabilapps.databinding.ActivityThirdBinding
 import com.example.nabilapps.utils.NotificationHelper
 import com.example.nabilapps.utils.PermissionHelper
+import com.example.nabilapps.utils.ReminderHelper
+import java.util.Calendar
 
 class ThirdActivity : AppCompatActivity() {
 
@@ -60,12 +62,25 @@ class ThirdActivity : AppCompatActivity() {
 
             val intent = Intent(this, ThirdResultActivity::class.java)
 
-            NotificationHelper.showNotification(
-                this,
-                "Pesanan Anda",
-                "Halo $nomorTujuan, Pesanan Anda Sedang Diproses", // Sekarang variabelnya adalah String yang benar
-                intent
+//            NotificationHelper.showNotification(
+//                this,
+//                "Pesanan Anda",
+//                "Halo $nomorTujuan, Pesanan Anda Sedang Diproses", // Sekarang variabelnya adalah String yang benar
+//                intent
+//            )
+            val calendar = Calendar.getInstance().apply {
+                add(Calendar.MINUTE, 1) // Tambah 1 menit dari sekarang
+            }
+
+            ReminderHelper.setReminder(
+                context = this, //Jika panggil di fragment maka requireContext()
+                hour = calendar.get(Calendar.HOUR_OF_DAY),
+                minute = calendar.get(Calendar.MINUTE),
+                title = "Reminder 1 Menit",
+                message = "Halo $nomorTujuan, reminder ini muncul 1 menit setelah tombol ditekan",
+                targetActivity = ThirdResultActivity::class.java
             )
+            Toast.makeText(this, "Silahkan tunggu 1 Menit untuk menerima Notifikasi...", Toast.LENGTH_SHORT).show()
         }
 
         // Pastikan tema di themes.xml adalah .NoActionBar dan id toolbar di XML adalah @+id/toolbar
